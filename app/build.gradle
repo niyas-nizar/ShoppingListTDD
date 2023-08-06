@@ -18,7 +18,9 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "PIXABAY_KEY", PIXABAY_KEY)
+        def localProperties = new Properties()
+        localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+        buildConfigField("String", "PIXABAY_KEY", localProperties.getProperty("PIXABAY_KEY"))
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
