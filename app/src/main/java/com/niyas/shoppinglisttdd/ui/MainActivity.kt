@@ -1,7 +1,8 @@
-package com.niyas.shoppinglisttdd
+package com.niyas.shoppinglisttdd.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.niyas.shoppinglisttdd.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

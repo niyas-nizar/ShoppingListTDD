@@ -10,5 +10,5 @@ data class ShoppingItem(
     var price: Float,
     var imageUrl: String,
     @PrimaryKey(autoGenerate = true)
-    var id: Int
+    var id: Int = 0
 )

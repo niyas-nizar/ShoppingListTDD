@@ -2,10 +2,13 @@ package com.niyas.shoppinglisttdd.di
 
 import android.content.Context
 import androidx.room.Room
+import com.niyas.shoppinglisttdd.data.local.ShoppingDao
 import com.niyas.shoppinglisttdd.data.local.ShoppingItemDatabase
 import com.niyas.shoppinglisttdd.data.remote.PixabayApi
 import com.niyas.shoppinglisttdd.other.Constant.BASE_URL
 import com.niyas.shoppinglisttdd.other.Constant.DATABASE_NAME
+import com.niyas.shoppinglisttdd.repositories.DefaultShoppingRepository
+import com.niyas.shoppinglisttdd.repositories.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,4 +40,11 @@ object AppModule {
             .build()
             .create(PixabayApi::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun providesDefaultShoppingRepository(
+        dao: ShoppingDao,
+        api: PixabayApi
+    ) = DefaultShoppingRepository(dao, api) as ShoppingRepository
 }
